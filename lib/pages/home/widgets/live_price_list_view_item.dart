@@ -7,19 +7,21 @@ import 'package:securrency_app/pages/home/widgets/live_price_list_item_slidable_
 class LivePriceListViewItem extends StatelessWidget {
   const LivePriceListViewItem({Key key}) : super(key: key);
 
-  Widget _buildContent() {
+  Widget _buildContent(BuildContext context) {
     return Row(
-      children: const [
-        Expanded(
+      children: [
+        const Expanded(
           child: LivePriceListItemListAreaLeftWidget(),
         ),
-        Expanded(
+        const Expanded(
           child: LivePriceListItemCenterAreaWidget(),
         ),
-        SizedBox(width: 10),
+        const SizedBox(width: 10),
         Expanded(
-          flex: 2,
-          child: LivePriceListItemRightAreaWidget(),
+          flex: MediaQuery.of(context).orientation == Orientation.portrait
+              ? 2
+              : 1,
+          child: const LivePriceListItemRightAreaWidget(),
         ),
       ],
     );
@@ -33,7 +35,7 @@ class LivePriceListViewItem extends StatelessWidget {
       child: Stack(
         children: [
           Positioned.fill(
-            child: _buildContent(),
+            child: _buildContent(context),
           ),
           const Positioned.fill(
             child: LivePriceListItemSlidableOptionsWidget(),

@@ -17,8 +17,10 @@ class LivePricesListView extends StatelessWidget {
           );
         },
         itemBuilder: (BuildContext context, int index) {
-          final bool isFirst = index == 0 ? true : false;
-          final bool isLast = index == 9 ? true : false;
+          bool isFirst = false;
+          bool isLast = false;
+          if (index == 0) isFirst = true;
+          if (index == 9) isLast = true;
           return ClipRRect(
             borderRadius: isFirst
                 ? const BorderRadius.only(

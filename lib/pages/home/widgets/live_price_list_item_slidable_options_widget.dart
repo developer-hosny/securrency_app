@@ -28,7 +28,6 @@ class LivePriceListItemSlidableOptionsWidget extends StatelessWidget {
           onTap: () => null,
         ),
       ],
-      actionExtentRatio: 0.25,
       child: Container(
         color: Colors.transparent,
       ),
